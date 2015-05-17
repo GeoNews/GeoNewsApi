@@ -21,9 +21,10 @@ namespace GeoNewsApi.Controllers
         }
 
         // GET: api/NewsItem/5
-        public string Get(int id)
+        public Models.NewsItem Get(int id)
         {
-            return "value";
+            Database.NewsItem newsitem = new Database.Model1().NewsItems.Find(id);
+            return new Models.NewsItem(newsitem);
         }
 
         // POST: api/NewsItem

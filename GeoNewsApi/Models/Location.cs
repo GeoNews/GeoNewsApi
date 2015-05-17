@@ -11,8 +11,17 @@ namespace GeoNewsApi.Models
         public Location(Database.Location dbLocation)
         {
             name = dbLocation.Name;
+            latitude = dbLocation.Latitude;
+            longitude = dbLocation.Longitude;
+            id = dbLocation.LocationId;
         }
 
+        public int id { get; set; }
+
         public string name { get; set; }
+
+        public double latitude { get; set; }
+
+        public double longitude { get; set; }
     }
 }
