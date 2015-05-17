@@ -10,12 +10,15 @@ namespace GeoNewsApi.Controllers
     [Authorize]
     public class ValuesController : ApiController
     {
+        ///<summary>This is an interesting description about this controller</summary>
         // GET api/values
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
+        ///<summary>More interesting information of note</summary>
+        ///<param name="id">This is a parameter that is interesting</param>
         // GET api/values/5
         public string Get(int id)
         {
