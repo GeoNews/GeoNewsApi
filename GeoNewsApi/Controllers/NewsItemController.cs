@@ -9,6 +9,7 @@ namespace GeoNewsApi.Controllers
 {
     public class NewsItemController : ApiController
     {
+        ///<summary>Gets all stories in the database</summary>
         // GET: api/NewsItem
         public IEnumerable<Models.NewsItem> Get()
         {
@@ -20,6 +21,8 @@ namespace GeoNewsApi.Controllers
             return list;
         }
 
+        ///<summary>Gets story by id</summary>
+        ///<param name="id">NewsItem id</param>
         // GET: api/NewsItem/5
         public Models.NewsItem Get(int id)
         {
