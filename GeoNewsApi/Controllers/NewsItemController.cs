@@ -27,19 +27,19 @@ namespace GeoNewsApi.Controllers
             return new Models.NewsItem(newsitem);
         }
 
-        // POST: api/NewsItem
-        public void Post([FromBody]string value)
-        {
-        }
+        //// POST: api/NewsItem
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
-        // PUT: api/NewsItem/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// PUT: api/NewsItem/5
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
-        // DELETE: api/NewsItem/5
-        public void Delete(int id)
-        {
-        }
+        //// DELETE: api/NewsItem/5
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
