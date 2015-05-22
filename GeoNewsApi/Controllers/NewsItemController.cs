@@ -32,19 +32,31 @@ namespace GeoNewsApi.Controllers
             return new Models.NewsItem(newsitem);
         }
 
-        //// POST: api/NewsItem
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        // POST: api/NewsItem
+        public void Post(Models.NewsItem newsItem)
+        {
+            Database.Model1 db = new Database.Model1();
+            db.NewsItems.Add(new Database.NewsItem() { HeadLine = newsItem.HeadLine, NewsItemDate = DateTime.Now });
+            db.SaveChanges();
+        }
 
-        //// PUT: api/NewsItem/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // PUT: api/NewsItem/5
+        public void Put(int id, Models.NewsItem value)
+        {
+            Database.Model1 db = new Database.Model1();
+            Database.NewsItem ni = db.NewsItems.Find(id);
+            ni.HeadLine = value.HeadLine;
+            ni.NewsItemDate = value.StoryDate;
+            db.SaveChanges();
+        }
 
-        //// DELETE: api/NewsItem/5
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE: api/NewsItem/5
+        public void Delete(int id)
+        {
+            Database.Model1 db = new Database.Model1();
+            Database.NewsItem ni = db.NewsItems.Find(id);
+            db.NewsItems.Remove(ni);
+            db.SaveChanges();
+        }
     }
 }

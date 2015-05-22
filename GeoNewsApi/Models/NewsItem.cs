@@ -30,6 +30,8 @@ namespace GeoNewsApi.Models
             }
         }
 
+        public NewsItem() { }
+
         public int id { get; set; }
 
         public string HeadLine { get; set; }

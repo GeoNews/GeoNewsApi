@@ -209,6 +209,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsItemController.cs" />
+    <Compile Include="Controllers\ParagraphController.cs" />
     <Compile Include="Database\Journalist.cs" />
     <Compile Include="Database\Location.cs" />
     <Compile Include="Database\Model1.cs" />
