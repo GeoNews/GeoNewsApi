@@ -14,7 +14,7 @@ namespace GeoNewsApi.Controllers
     {
         Model1 db = new Model1();
 
-        public void Post(int storyId, string paragraphText) {
+        public void Post([FromBody]int storyId, [FromBody]string paragraphText) {
             Paragraph p = new Paragraph() { NewsItemId = storyId, Text = paragraphText };
             int paraNo;
             if (db.Paragraphs.Where(e => e.NewsItemId == storyId).Count() == 0)
