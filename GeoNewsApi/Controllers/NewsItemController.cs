@@ -55,6 +55,9 @@ namespace GeoNewsApi.Controllers
         {
             Database.Model1 db = new Database.Model1();
             Database.NewsItem ni = db.NewsItems.Find(id);
+            ni.Paragraphs.Clear();
+            ni.Journalists.Clear();
+            ni.Locations.Clear();
             db.NewsItems.Remove(ni);
             db.SaveChanges();
         }
