@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GeoNewsApi.Database.Location>
+
+@{
+    ViewBag.Title = "LinkToLocation";
+}
+
+<h3>Link <i>@(ViewBag.Headline)</i> To Location</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <input type="hidden" name="storyId" value="@(ViewBag.StoryId)" />
+        <select id="locationId" name="locationId">
+            @foreach (GeoNewsApi.Database.Location location in Model)
+            {
+                <option value="@(location.LocationId)">@(location.Name)</option>
+            }
+        </select>
+        <div class="form-group">
+            <input type="submit" name="name" value="Submit" />
+        </div>
+    </div>
+}

@@ -15,6 +15,11 @@ namespace GeoNewsApi.Models
             Latitude = location.Latitude;
             Longitude = location.Longitude;
             StoryDate = newsItem.NewsItemDate;
+            StoryText = new List<string>();
+            foreach (Database.Paragraph paragraph in newsItem.Paragraphs.OrderBy(e => e.ParagraphNumber))
+            {
+                StoryText.Add(paragraph.Text);
+            }
             Journalists = new List<string>();
             foreach (Database.Journalist j in newsItem.Journalists)
             {
@@ -34,7 +39,7 @@ namespace GeoNewsApi.Models
 
         public List<string> Journalists { get; set; }
 
-        public string StoryText { get; set; }
+        public List<string> StoryText { get; set; }
 
         public static List<StoryLocation> GetStoriesFromNewsLocation(Database.Location location)
         {

@@ -4,29 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GeoNewsApi.Models;
 
 namespace GeoNewsApi.Controllers
 {
-    public class LocationController : ApiController
+    public class StoryLocationController : ApiController
     {
         Database.Model1 db = new Database.Model1();
-
         // GET: api/Location
-        public IEnumerable<Models.Location> Get()
+        public IEnumerable<StoryLocation> Get()
         {
-            List<Database.Location> dblocations = db.Locations.ToList();
-            List<Models.Location> locations = new List<Models.Location>();
-            foreach (Database.Location location in dblocations)
-            {
-                locations.Add(new Models.Location(location));
-            }
-            return locations;
+            return (IEnumerable<StoryLocation>)StoryLocation.GetStoriesFromNewsLocation(db.Locations.ToList());
         }
 
         // GET: api/Location/5
-        public Models.Location Get(int id)
+        public IEnumerable<StoryLocation> Get(int id)
         {
-            return new Models.Location(db.Locations.Find(id));
+            return (IEnumerable<StoryLocation>)StoryLocation.GetStoriesFromNewsLocation(db.Locations.Find(id));
         }
 
         //// POST: api/Location
